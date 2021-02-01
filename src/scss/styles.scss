@@ -1,0 +1,120 @@
+@import '../assets/_variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: -o-linear-gradient(to left bottom, #ffbd9b, #ffc79c, #ffd29e, #ffdca2, #ffe7a8) fixed;
+  background: -webkit-linear-gradient(to left bottom, #ffbd9b, #ffc79c, #ffd29e, #ffdca2, #ffe7a8) fixed;
+  background: linear-gradient(to left bottom, #ffbd9b, #ffc79c, #ffd29e, #ffdca2, #ffe7a8) fixed;
+  font-family: 'Arial';
+  height: 100vh;
+  min-width: 300px;
+}
+
+/*main page of app*/
+.todos-container {
+  margin: auto;
+  padding-top: 6rem;
+  text-align: center;
+  width: 35%
+}
+
+.todo-title {
+  font-size: 1.7rem;
+  font-weight: $bold;
+}
+
+.todos-input {
+  border: none;
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+  height: 1.7rem;
+  padding-left: 0.5rem;
+  width: 70%;
+}
+
+.todos-add-btn {
+  background-color: $green;
+  border: none;
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+  color: $black;
+  cursor: pointer;
+  font-weight: $bold;
+  height: 1.7rem;
+  width: 1.9rem;
+}
+
+/*add*/
+.add-container {
+  margin: auto;
+  width: 75%;
+}
+
+.list {
+  list-style-type: none;
+  padding: 1rem 0 0 0;
+  width: 100%;
+}
+
+.list-item {
+  display: flex;
+}
+
+.todo-text-container {
+  margin-left: 0.5rem;
+}
+
+/*strike*/
+.strike {
+  text-decoration: line-through;
+}
+
+/*delete*/
+.delete-container {
+  display: inline;
+  text-align: right;
+  width: 100%;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: $red;
+  cursor: pointer;
+}
+
+.line {
+  border-top: 1px dashed #000;
+  left: 0.3rem;
+  margin-left: 3.9rem;
+  position: relative;
+  width: 40%;
+}
+
+.completed-label {
+  font-weight: $bold;
+  padding-left: 4.5rem;
+}
+
+.line,
+.completed-label {
+  float: left;
+}
+
+.add-container,
+.completed-label {
+  clear: both;
+}
+
+/*footer*/
+.author {
+  bottom: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding-right: 1rem;
+  position: fixed;
+  right: 0;
+}
