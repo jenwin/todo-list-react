@@ -3,7 +3,11 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-      <p className="author">© JENNIFER NGUYEN</p>
+      <p
+        className="author"
+        tabIndex="0">
+          © JENNIFER NGUYEN
+      </p>
     </div>
   );
 }

@@ -8,6 +8,7 @@ class TodoItem extends Component {
       <div className="todo-text-container">
         <div
           id={id}
+          tabIndex="0"
           onClick={handleStrike}>
             {todo}
         </div>

@@ -90,6 +90,7 @@ class App extends Component {
               />
               <button
                 className="todos-add-btn"
+                tabIndex="0"
                 disabled={disabled}>
                   +
               </button>
@@ -101,13 +102,17 @@ class App extends Component {
               handleCheck={this.handleCheck}
             />
             <div className="line"></div>
-            <p className="completed-label">Completed Tasks</p>
+            <p
+              className="completed-label"
+              tabIndex="0">
+                Completed Tasks
+            </p>
             <TodoList
               items={completedItems}
               deleteTodo={this.deleteTodo}
               handleStrike={this.handleStrike}
               handleCheck={this.handleCheck}
-             />
+            />
         </form>
 
         <Footer />
