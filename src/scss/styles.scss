@@ -61,6 +61,7 @@ body {
 
 .list-item {
   display: flex;
+  white-space: nowrap;
 }
 
 .todo-text-container {
