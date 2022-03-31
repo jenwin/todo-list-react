@@ -5,7 +5,7 @@ My todo list in react.
 - Clone or Download
 - `npm install && npm start` to run the application
 - Launch project at `http://localhost:3000/`
-- Visit: [jenwin.github.io/todo-list-react](https://jenwin.github.io/todo-list-react/)
+- [See app on Heroku](https://my-daily-todo.herokuapp.com/)
 
 ## License
 GNU General Public License v3.0
