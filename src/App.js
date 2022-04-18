@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import TodoList from './components/TodoList';
 import Footer from './components/Footer';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -20,8 +21,10 @@ class App extends Component {
     this.handleCheck = this.handleCheck.bind(this);
   }
 
-  handleSubmit = e => {
+  //set the id and the lists of items (todos)
+  handleSubmit = async e => {
     e.preventDefault();
+
     const { id, add, items } = this.state;
     let obj = { id, todo: add }
     let todos = Object.assign({}, obj);
@@ -30,8 +33,26 @@ class App extends Component {
       id: setId,
       items: [...items, todos]
     });
+
+    const todo = {
+      id,
+      todos
+    }
+
+    const headers = {
+      header: {
+        "Content-type": "application/json"
+      }
+    }
+
+    try {
+      const { data } = await axios.post('http://localhost:8080/', todo, headers);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
+  //get the name and value of the todo
   addTodo = e => {
     const name = e.target.name;
     const value = e.target.value;
@@ -58,8 +79,8 @@ class App extends Component {
     });
   }
 
-  deleteTodo = item => {
-    const { items, completedItems } = this.state;
+  deleteTodo = async item => {
+    const { id, items, completedItems } = this.state;
     const data = items.filter(i => i.id !== item);
     const completedData = completedItems.filter(c => c.id !== item);
     this.setState({
@@ -71,6 +92,8 @@ class App extends Component {
   render() {
     const { add, items, completedItems } = this.state;
     const disabled = (add === "" ? true : false);
+    console.log(items)
+    console.log(completedItems)
 
     return (
       <div className="todos-container">

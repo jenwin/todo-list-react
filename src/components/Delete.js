@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Delete extends Component {
   render() {
     const { id, deleteTodo } = this.props;
-
+  
     return (
       <div className="delete-container">
         <button
