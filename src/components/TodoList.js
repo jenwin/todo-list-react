@@ -3,7 +3,7 @@ import Delete from './Delete';
 import Checked from './Checked';
 import TodoItem from './TodoItem';
 
-class Add extends Component {
+class TodoList extends Component {
   render() {
     const { items, deleteTodo, handleStrike, handleCheck } = this.props;
 
@@ -39,4 +39,4 @@ class Add extends Component {
   }
 }
 
-export default Add;
+export default TodoList;
