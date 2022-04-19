@@ -3,6 +3,7 @@ import Header from './components/Header';
 import TodoList from './components/TodoList';
 import Footer from './components/Footer';
 import axios from 'axios';
+let url = 'http://localhost:8080/';
 
 class App extends Component {
   constructor(props) {
@@ -21,23 +22,18 @@ class App extends Component {
     this.handleCheck = this.handleCheck.bind(this);
   }
 
-  //set the id and the lists of items (todos)
   handleSubmit = async e => {
     e.preventDefault();
 
     const { id, add, items } = this.state;
-    let obj = { id, todo: add }
-    let todos = Object.assign({}, obj);
+    //an object todo with an id and a todo added
+    //give each todo a unique id
+    let todo = { id, add }
     const setId = id + 1;
     this.setState({
       id: setId,
-      items: [...items, todos]
+      items: [...items, todo]
     });
-
-    const todo = {
-      id,
-      todos
-    }
 
     const headers = {
       header: {
@@ -46,7 +42,12 @@ class App extends Component {
     }
 
     try {
-      const { data } = await axios.post('http://localhost:8080/', todo, headers);
+      const { data } = await axios.post(url, todo, headers);
+      //get the new todo
+      items.push(data);
+      this.setState({
+        items
+      })
     } catch (err) {
       console.log(err);
     }
@@ -92,8 +93,6 @@ class App extends Component {
   render() {
     const { add, items, completedItems } = this.state;
     const disabled = (add === "" ? true : false);
-    console.log(items)
-    console.log(completedItems)
 
     return (
       <div className="todos-container">
