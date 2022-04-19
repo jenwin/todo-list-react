@@ -88,6 +88,13 @@ class App extends Component {
       items: data,
       completedItems: completedData
     });
+
+    //get the id to delete a todo
+    const ids = items.map(i => i._id);
+    for (let i=0; i < ids.length; i++) {
+      let _id = ids[i];
+      await axios.delete(url+_id);
+    }
   }
 
   render() {
