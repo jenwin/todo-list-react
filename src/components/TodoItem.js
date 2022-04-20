@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
   render() {
-    const { id, todo, handleStrike } = this.props;
+    const { id, text, handleStrike } = this.props;
 
     return (
       <div className="todo-text-container">
@@ -10,7 +10,7 @@ class TodoItem extends Component {
           id={id}
           tabIndex="0"
           onClick={handleStrike}>
-            {todo}
+            {text}
         </div>
       </div>
     );

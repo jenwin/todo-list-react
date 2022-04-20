@@ -8,7 +8,7 @@ class Delete extends Component {
       <div className="delete-container">
         <button
           className="delete-btn"
-          ariaLabel="delete button"
+          aria-label="delete button"
           onClick={() => deleteTodo(id)}>
             <i className='fas fa-trash-alt'></i>
           </button>

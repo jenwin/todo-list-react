@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       id: 0,
-      add: "",
+      text: "",
       strike: false,
       items: [],
       completedItems: []
@@ -25,10 +25,10 @@ class App extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const { id, add, items } = this.state;
+    const { id, text, items } = this.state;
     //an object todo with an id and a todo added
     //give each todo a unique id
-    let todo = { id, add }
+    let todo = { id, text }
     const setId = id + 1;
     this.setState({
       id: setId,
@@ -98,8 +98,8 @@ class App extends Component {
   }
 
   render() {
-    const { add, items, completedItems } = this.state;
-    const disabled = (add === "" ? true : false);
+    const { text, items, completedItems } = this.state;
+    const disabled = (text === "" ? true : false);
 
     return (
       <div className="todos-container">
@@ -113,8 +113,8 @@ class App extends Component {
                 autoComplete="off"
                 maxLength={16}
                 type="text"
-                name="add"
-                value={add}
+                name="text"
+                value={text}
                 onChange={this.addTodo}
               />
               <button

@@ -6,7 +6,7 @@ class Header extends Component {
       <div>
         <p
           className="todo-title"
-          ariaLabel="title"
+          aria-label="title"
           tabIndex="0">
             my todos
         </p>

@@ -6,6 +6,7 @@ import TodoItem from './TodoItem';
 class TodoList extends Component {
   render() {
     const { items, deleteTodo, handleStrike, handleCheck } = this.props;
+    console.log(items)
 
     return (
       <div className="add-container">
@@ -16,12 +17,12 @@ class TodoList extends Component {
               key={i.id}>
                 <Checked
                   id={i.id}
-                  todo={i.todo}
+                  text={i.text}
                   handleCheck={(handleCheck)}
                 />
                 <TodoItem
                   id={i.id}
-                  todo={i.todo}
+                  text={i.text}
                   className="todo"
                   handleStrike={handleStrike}
                 />
