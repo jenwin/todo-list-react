@@ -25,7 +25,7 @@ class App extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const { id, text, items } = this.state;
+    const { id, text, items, completedItems } = this.state;
     //an object todo with an id and a todo added
     //give each todo a unique id
     let todo = { id, text }
@@ -47,7 +47,7 @@ class App extends Component {
       items.push(data);
       this.setState({
         items
-      })
+      });
     } catch (err) {
       console.log(err);
     }
@@ -64,8 +64,10 @@ class App extends Component {
 
   handleCheck = checkedItem => {
     const { items, completedItems } = this.state;
+    //if the user checks the checkbox (true), the todo moves to the completedItems array
+    //if false, the todo moves to the Items array
     const checkState = items.some(c => c.id === checkedItem.id);
-    const checkItems = items.filter(i => i.id  !== checkedItem.id);
+    const checkItems = items.filter(i => i.id !== checkedItem.id);
     const checkCompletedItems = completedItems.filter(c => c.id !== checkedItem.id);
     this.setState({
       items: checkState ? checkItems : [...items, checkedItem],
