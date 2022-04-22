@@ -9,9 +9,9 @@ app.use(express.urlencoded({ extended: true}));
 app.use(cors());
 const port = process.env.PORT || 8080;
 
-const todos = require('./todo');
+const todos = require('./routes/todo');
 
-app.use('/', todos);
+app.use('/todo', todos);
 
 app.listen(port, () => console.log(
     `Listening on port ${port}`

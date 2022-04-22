@@ -3,7 +3,7 @@ import Header from './components/Header';
 import TodoList from './components/TodoList';
 import Footer from './components/Footer';
 import axios from 'axios';
-let url = 'http://localhost:8080/';
+let url = 'http://localhost:8080/todo/';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class App extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const { id, text, items, completedItems } = this.state;
+    const { id, text, items } = this.state;
     //an object todo with an id and a todo added
     //give each todo a unique id
     let todo = { id, text }
@@ -49,7 +49,7 @@ class App extends Component {
         items
       });
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   }
 
@@ -62,7 +62,7 @@ class App extends Component {
     });
   }
 
-  handleCheck = checkedItem => {
+  handleCheck = async checkedItem => {
     const { items, completedItems } = this.state;
     //if the user checks the checkbox (true), the todo moves to the completedItems array
     //if false, the todo moves to the Items array
@@ -83,7 +83,7 @@ class App extends Component {
   }
 
   deleteTodo = async item => {
-    const { id, items, completedItems } = this.state;
+    const { items, completedItems } = this.state;
     const data = items.filter(i => i.id !== item);
     const completedData = completedItems.filter(c => c.id !== item);
     this.setState({
@@ -95,7 +95,7 @@ class App extends Component {
     const ids = items.map(i => i._id);
     for (let i=0; i < ids.length; i++) {
       let _id = ids[i];
-      await axios.delete(url+_id);
+      await axios.delete(url+'delete/'+_id);
     }
   }
 
